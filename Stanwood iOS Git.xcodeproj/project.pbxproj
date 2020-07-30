@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B598325324D35D2800629E9A /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598325124D35D2800629E9A /* RepositoryCell.swift */; };
+		B598325424D35D2800629E9A /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B598325224D35D2800629E9A /* RepositoryCell.xib */; };
 		B5A701F824D352960039F9FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A701F724D352960039F9FE /* AppDelegate.swift */; };
 		B5A701FA24D352960039F9FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A701F924D352960039F9FE /* SceneDelegate.swift */; };
-		B5A701FC24D352960039F9FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A701FB24D352960039F9FE /* ViewController.swift */; };
-		B5A701FF24D352960039F9FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A701FD24D352960039F9FE /* Main.storyboard */; };
 		B5A7020124D3529C0039F9FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A7020024D3529C0039F9FE /* Assets.xcassets */; };
-		B5A7020424D3529C0039F9FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A7020224D3529C0039F9FE /* LaunchScreen.storyboard */; };
+		B5A7020E24D357FA0039F9FE /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7020D24D357FA0039F9FE /* RepositoriesViewController.swift */; };
+		B5A7021124D3580B0039F9FE /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7021024D3580B0039F9FE /* FavouritesViewController.swift */; };
+		B5A7021524D35B0B0039F9FE /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7021424D35B0B0039F9FE /* UICollectionViewCell+Extension.swift */; };
+		B5A7021724D35B170039F9FE /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7021624D35B170039F9FE /* UICollectionView+Extension.swift */; };
+		B5A7021924D35C580039F9FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A7020224D3529C0039F9FE /* LaunchScreen.storyboard */; };
+		B5A7021A24D35C5C0039F9FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A701FD24D352960039F9FE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B598325124D35D2800629E9A /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		B598325224D35D2800629E9A /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		B5A701F424D352960039F9FE /* Stanwood iOS Git.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stanwood iOS Git.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A701F724D352960039F9FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5A701F924D352960039F9FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5A701FB24D352960039F9FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5A701FE24D352960039F9FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5A7020024D3529C0039F9FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5A7020324D3529C0039F9FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5A7020524D3529C0039F9FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5A7020D24D357FA0039F9FE /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		B5A7021024D3580B0039F9FE /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		B5A7021424D35B0B0039F9FE /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		B5A7021624D35B170039F9FE /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B598325024D35D0000629E9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B598325124D35D2800629E9A /* RepositoryCell.swift */,
+				B598325224D35D2800629E9A /* RepositoryCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B5A701EB24D352960039F9FE = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +75,67 @@
 		B5A701F624D352960039F9FE /* Stanwood iOS Git */ = {
 			isa = PBXGroup;
 			children = (
+				B5A7021224D35AF10039F9FE /* Infrastructure */,
+				B5A7020B24D357DC0039F9FE /* Preesentation */,
+				B5A7021824D35BD40039F9FE /* Supporting Files */,
+			);
+			path = "Stanwood iOS Git";
+			sourceTree = "<group>";
+		};
+		B5A7020B24D357DC0039F9FE /* Preesentation */ = {
+			isa = PBXGroup;
+			children = (
+				B5A701FD24D352960039F9FE /* Main.storyboard */,
+				B5A7020C24D357E60039F9FE /* RepositoriesScene */,
+				B5A7020F24D358040039F9FE /* Favourites */,
+			);
+			path = Preesentation;
+			sourceTree = "<group>";
+		};
+		B5A7020C24D357E60039F9FE /* RepositoriesScene */ = {
+			isa = PBXGroup;
+			children = (
+				B598325024D35D0000629E9A /* View */,
+				B5A7020D24D357FA0039F9FE /* RepositoriesViewController.swift */,
+			);
+			path = RepositoriesScene;
+			sourceTree = "<group>";
+		};
+		B5A7020F24D358040039F9FE /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				B5A7021024D3580B0039F9FE /* FavouritesViewController.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		B5A7021224D35AF10039F9FE /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				B5A7021324D35AFB0039F9FE /* Extensions */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		B5A7021324D35AFB0039F9FE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5A7021424D35B0B0039F9FE /* UICollectionViewCell+Extension.swift */,
+				B5A7021624D35B170039F9FE /* UICollectionView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5A7021824D35BD40039F9FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				B5A701F724D352960039F9FE /* AppDelegate.swift */,
 				B5A701F924D352960039F9FE /* SceneDelegate.swift */,
-				B5A701FB24D352960039F9FE /* ViewController.swift */,
-				B5A701FD24D352960039F9FE /* Main.storyboard */,
 				B5A7020024D3529C0039F9FE /* Assets.xcassets */,
 				B5A7020224D3529C0039F9FE /* LaunchScreen.storyboard */,
 				B5A7020524D3529C0039F9FE /* Info.plist */,
 			);
-			path = "Stanwood iOS Git";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +196,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A7020424D3529C0039F9FE /* LaunchScreen.storyboard in Resources */,
+				B5A7021A24D35C5C0039F9FE /* Main.storyboard in Resources */,
+				B5A7021924D35C580039F9FE /* LaunchScreen.storyboard in Resources */,
 				B5A7020124D3529C0039F9FE /* Assets.xcassets in Resources */,
-				B5A701FF24D352960039F9FE /* Main.storyboard in Resources */,
+				B598325424D35D2800629E9A /* RepositoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +210,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A701FC24D352960039F9FE /* ViewController.swift in Sources */,
+				B5A7020E24D357FA0039F9FE /* RepositoriesViewController.swift in Sources */,
+				B598325324D35D2800629E9A /* RepositoryCell.swift in Sources */,
+				B5A7021724D35B170039F9FE /* UICollectionView+Extension.swift in Sources */,
+				B5A7021524D35B0B0039F9FE /* UICollectionViewCell+Extension.swift in Sources */,
 				B5A701F824D352960039F9FE /* AppDelegate.swift in Sources */,
+				B5A7021124D3580B0039F9FE /* FavouritesViewController.swift in Sources */,
 				B5A701FA24D352960039F9FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62BA3UNA7M;
-				INFOPLIST_FILE = "Stanwood iOS Git/Info.plist";
+				INFOPLIST_FILE = "Stanwood iOS Git/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62BA3UNA7M;
-				INFOPLIST_FILE = "Stanwood iOS Git/Info.plist";
+				INFOPLIST_FILE = "Stanwood iOS Git/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
