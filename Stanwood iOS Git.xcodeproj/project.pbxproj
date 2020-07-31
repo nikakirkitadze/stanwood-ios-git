@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B56F82DF24D3DFA400C444A8 /* Apple SD Gothic Neo Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple SD Gothic Neo Bold.ttf"; sourceTree = "<group>"; };
 		B598325124D35D2800629E9A /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		B598325224D35D2800629E9A /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		B5A701F424D352960039F9FE /* Stanwood iOS Git.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stanwood iOS Git.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +48,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B56F82DD24D3DF8900C444A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5A7020024D3529C0039F9FE /* Assets.xcassets */,
+				B56F82DE24D3DF9400C444A8 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B56F82DE24D3DF9400C444A8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B56F82DF24D3DFA400C444A8 /* Apple SD Gothic Neo Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		B598325024D35D0000629E9A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +93,7 @@
 		B5A701F624D352960039F9FE /* Stanwood iOS Git */ = {
 			isa = PBXGroup;
 			children = (
+				B56F82DD24D3DF8900C444A8 /* Resources */,
 				B5A7021224D35AF10039F9FE /* Infrastructure */,
 				B5A7020B24D357DC0039F9FE /* Preesentation */,
 				B5A7021824D35BD40039F9FE /* Supporting Files */,
@@ -131,7 +150,6 @@
 			children = (
 				B5A701F724D352960039F9FE /* AppDelegate.swift */,
 				B5A701F924D352960039F9FE /* SceneDelegate.swift */,
-				B5A7020024D3529C0039F9FE /* Assets.xcassets */,
 				B5A7020224D3529C0039F9FE /* LaunchScreen.storyboard */,
 				B5A7020524D3529C0039F9FE /* Info.plist */,
 			);

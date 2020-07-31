@@ -33,7 +33,7 @@ extension RepositoriesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RepositoryCell.identifier, for: indexPath)
+        let cell = collectionView.deque(RepositoryCell.self, for: indexPath)
         
         return cell
     }
@@ -49,10 +49,10 @@ extension RepositoriesViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDelegateFlowLayout
 extension RepositoriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 55)
+        return CGSize(width: collectionView.frame.width, height: 65)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

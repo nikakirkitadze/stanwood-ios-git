@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pcb-7D-kPa">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="203" width="414" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kca-zu-xJi">
                                     <size key="itemSize" width="50" height="50"/>
@@ -52,13 +52,30 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n78-RO-nKs">
+                                <rect key="frame" x="40" y="133" width="334" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="l3N-mx-nfg"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Month"/>
+                                    <segment title="Year"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" red="0.3803921569" green="0.3803921569" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Pcb-7D-kPa" firstAttribute="top" secondItem="PQ1-h2-Txf" secondAttribute="top" id="1nf-0Z-p9L"/>
                             <constraint firstItem="Pcb-7D-kPa" firstAttribute="leading" secondItem="PQ1-h2-Txf" secondAttribute="leading" id="2kC-Dz-GhJ"/>
+                            <constraint firstItem="n78-RO-nKs" firstAttribute="top" secondItem="PQ1-h2-Txf" secondAttribute="top" constant="45" id="8ID-1N-8sC"/>
                             <constraint firstItem="PQ1-h2-Txf" firstAttribute="bottom" secondItem="Pcb-7D-kPa" secondAttribute="bottom" id="9Bj-gH-o27"/>
                             <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="Pcb-7D-kPa" secondAttribute="trailing" id="IIN-Z7-6s8"/>
+                            <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="n78-RO-nKs" secondAttribute="trailing" constant="40" id="Orn-vo-8Rs"/>
+                            <constraint firstItem="Pcb-7D-kPa" firstAttribute="top" secondItem="n78-RO-nKs" secondAttribute="bottom" constant="40" id="VGS-JF-MMT"/>
+                            <constraint firstItem="n78-RO-nKs" firstAttribute="leading" secondItem="PQ1-h2-Txf" secondAttribute="leading" constant="40" id="ilk-Gc-k5t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQ1-h2-Txf"/>
                     </view>
@@ -118,7 +135,7 @@
         <scene sceneID="Cs0-EW-DTF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bET-nP-WTZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favourites" id="gRE-7k-KCr"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="ic-bookmark" id="gRE-7k-KCr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WCS-VZ-Eqe">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -140,4 +157,7 @@
             <point key="canvasLocation" x="127.53623188405798" y="203.57142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic-bookmark" width="16" height="20"/>
+    </resources>
 </document>
