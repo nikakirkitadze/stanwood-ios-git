@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RepositoryCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var labelUsername: UILabel!
+    @IBOutlet weak var labelDescription: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

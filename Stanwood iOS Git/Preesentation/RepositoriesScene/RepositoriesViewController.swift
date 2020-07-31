@@ -49,7 +49,7 @@ extension RepositoriesViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDelegateFlowLayout
 extension RepositoriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 65)
+        return CGSize(width: collectionView.frame.width, height: 75)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -110,7 +110,7 @@
         <scene sceneID="ozm-eo-gSE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NJS-9g-eO6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Repositories" id="rjM-oK-YwY"/>
+                    <tabBarItem key="tabBarItem" title="Repositories" image="ic-repository" id="rjM-oK-YwY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="jfA-GC-dxV">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -159,5 +159,6 @@
     </scenes>
     <resources>
         <image name="ic-bookmark" width="16" height="20"/>
+        <image name="ic-repository" width="16" height="19"/>
     </resources>
 </document>
