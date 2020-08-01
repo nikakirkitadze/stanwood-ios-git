@@ -9,13 +9,29 @@
 
 import UIKit
 
-class RepositoriesViewController: UIViewController {
+class RepositoriesViewController: BaseRepositoryViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var scFilter: UISegmentedControl!
+    
+    override func loadView() {
+        super.loadView()
+        view.addSubview(spinner)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupLayout()
+        fetchRepositories()
+    }
+    
+    private func setupLayout() {
+        //selected title text color
+        scFilter.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
+        //default title text color
+        scFilter.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: UIControl.State.normal)
+        
         configureCollectionView()
     }
     
@@ -24,35 +40,14 @@ class RepositoriesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.registerClass(RepositoryCell.self)
     }
-}
-
-// MARK: UICollectionViewDataSource
-extension RepositoriesViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(RepositoryCell.self, for: indexPath)
-        
-        return cell
-    }
-}
-
-// MARK: UICollectionViewDelegate
-extension RepositoriesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-}
-
-// MARK: UICollectionViewDelegateFlowLayout
-extension RepositoriesViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 75)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    private func fetchRepositories() {
+        RepositoriesServiceManager.fetchTrendingRepositories { (repos) in
+            self.trendingReposViewModels = repos.map({ TrendingRepositoryViewModel(item: $0) })
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
