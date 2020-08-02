@@ -17,7 +17,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var labelCreatedDate: UILabel!
     @IBOutlet weak var btnOpenInGithub: UIButton!
     
-    var viewModel: TrendingRepositoryViewModel?
+    var viewModel: RepositoryViewModel?
+    private var linkUrl: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,25 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func onOpenInGithub(_ sender: UIButton) {
-        
+        guard let url = linkUrl else {
+            return
+        }
+            
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     private func representRepositoryInfo() {
-        guard let viewModel = viewModel else {return}
+        guard let viewModel     = viewModel else {return}
+        linkUrl                 = viewModel.repoUrl
         
-        labelDescription.text = viewModel.descriptionn
+        labelDescription.text   = viewModel.descriptionn
+        labelLanguage.text      = viewModel.language
+        labelFork.text          = viewModel.forks
+        labelStar.text          = viewModel.stars
+        labelCreatedDate.text   = viewModel.formattedDate
     }
 }

@@ -36,7 +36,7 @@ class RepositoryCell: UICollectionViewCell {
         imgUser.layer.cornerRadius = imgUser.frame.height/2
     }
     
-    internal func configure(with viewModel: TrendingRepositoryViewModel) {
+    internal func configure(with viewModel: RepositoryViewModel) {
         labelUsername.text      = viewModel.authorAndName
         labelDescription.text   = viewModel.descriptionn
         imgUser.kf.setImage(with: viewModel.avatarUrl)

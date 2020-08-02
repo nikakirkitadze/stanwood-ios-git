@@ -87,7 +87,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="AP2-h1-L4L">
                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="88"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUo-Vk-77R">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-code" translatesAutoresizingMaskIntoConstraints="NO" id="eUo-Vk-77R">
                                                         <rect key="frame" x="0.0" y="34" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="7fr-EH-PTO"/>
@@ -106,7 +106,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="esM-qR-wsg">
                                                 <rect key="frame" x="0.0" y="96" width="366" height="20"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zw8-w1-91i">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-fork" translatesAutoresizingMaskIntoConstraints="NO" id="zw8-w1-91i">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="lrW-yX-PHx"/>
@@ -124,7 +124,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="9ko-Em-koz">
                                                 <rect key="frame" x="0.0" y="124" width="366" height="20"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PJO-uG-Zu8">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-star" translatesAutoresizingMaskIntoConstraints="NO" id="PJO-uG-Zu8">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="FV1-40-dle"/>
@@ -142,7 +142,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="WpL-K2-cbj">
                                                 <rect key="frame" x="0.0" y="152" width="366" height="88"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CF3-hx-DX1">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-clock" translatesAutoresizingMaskIntoConstraints="NO" id="CF3-hx-DX1">
                                                         <rect key="frame" x="0.0" y="34" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="HfS-40-E3R"/>
@@ -222,7 +222,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pcb-7D-kPa">
-                                <rect key="frame" x="0.0" y="203" width="414" height="610"/>
+                                <rect key="frame" x="0.0" y="178" width="414" height="635"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kca-zu-xJi">
                                     <size key="itemSize" width="50" height="50"/>
@@ -242,7 +242,7 @@
                                 </cells>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n78-RO-nKs">
-                                <rect key="frame" x="40" y="133" width="334" height="31"/>
+                                <rect key="frame" x="30" y="118" width="354" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="l3N-mx-nfg"/>
@@ -259,12 +259,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Pcb-7D-kPa" firstAttribute="leading" secondItem="PQ1-h2-Txf" secondAttribute="leading" id="2kC-Dz-GhJ"/>
-                            <constraint firstItem="n78-RO-nKs" firstAttribute="top" secondItem="PQ1-h2-Txf" secondAttribute="top" constant="45" id="8ID-1N-8sC"/>
+                            <constraint firstItem="n78-RO-nKs" firstAttribute="top" secondItem="PQ1-h2-Txf" secondAttribute="top" constant="30" id="8ID-1N-8sC"/>
                             <constraint firstItem="PQ1-h2-Txf" firstAttribute="bottom" secondItem="Pcb-7D-kPa" secondAttribute="bottom" id="9Bj-gH-o27"/>
                             <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="Pcb-7D-kPa" secondAttribute="trailing" id="IIN-Z7-6s8"/>
-                            <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="n78-RO-nKs" secondAttribute="trailing" constant="40" id="Orn-vo-8Rs"/>
-                            <constraint firstItem="Pcb-7D-kPa" firstAttribute="top" secondItem="n78-RO-nKs" secondAttribute="bottom" constant="40" id="VGS-JF-MMT"/>
-                            <constraint firstItem="n78-RO-nKs" firstAttribute="leading" secondItem="PQ1-h2-Txf" secondAttribute="leading" constant="40" id="ilk-Gc-k5t"/>
+                            <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="n78-RO-nKs" secondAttribute="trailing" constant="30" id="Orn-vo-8Rs"/>
+                            <constraint firstItem="Pcb-7D-kPa" firstAttribute="top" secondItem="n78-RO-nKs" secondAttribute="bottom" constant="30" id="VGS-JF-MMT"/>
+                            <constraint firstItem="n78-RO-nKs" firstAttribute="leading" secondItem="PQ1-h2-Txf" secondAttribute="leading" constant="30" id="ilk-Gc-k5t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQ1-h2-Txf"/>
                     </view>
@@ -274,6 +274,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Pcb-7D-kPa" id="gIT-hA-XhL"/>
                         <outlet property="scFilter" destination="n78-RO-nKs" id="vCk-9L-Dax"/>
+                        <outlet property="topMarginConstraint" destination="8ID-1N-8sC" id="Sj6-u2-CRZ"/>
                         <segue destination="Kjs-Cd-VjB" kind="push" identifier="repo_details_segue" id="IeW-NN-Qyk"/>
                     </connections>
                 </viewController>
@@ -354,9 +355,13 @@
     </scenes>
     <resources>
         <image name="ic-bookmark" width="16" height="20"/>
+        <image name="ic-clock" width="56" height="56"/>
+        <image name="ic-code" width="65" height="47"/>
+        <image name="ic-fork" width="40" height="60"/>
         <image name="ic-repository" width="16" height="19"/>
+        <image name="ic-star" width="55" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CWp-IZ-tRZ"/>
+        <segue reference="IeW-NN-Qyk"/>
     </inferredMetricsTieBreakers>
 </document>

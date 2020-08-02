@@ -14,6 +14,5 @@ struct Segues {
 }
 
 struct Network {
-    static let githubBaseUrl = "https://api.github.com"
-    static let trendingGithubBaseUrl = "github-trending-api.now.sh"
+    static let githubBaseUrl = "api.github.com"
 }

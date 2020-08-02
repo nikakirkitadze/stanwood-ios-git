@@ -25,16 +25,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="392" height="230"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="U2b-JP-qQA">
-                                <rect key="frame" x="80" y="92" width="237" height="46"/>
+                                <rect key="frame" x="84" y="92" width="223" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanwood/Bitrise_Android" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIw-XG-sBA">
-                                        <rect key="frame" x="0.0" y="0.0" width="237" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="22"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                         <color key="textColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place for testing the stuffs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcQ-4g-5NW">
-                                        <rect key="frame" x="0.0" y="28" width="237" height="18"/>
+                                        <rect key="frame" x="0.0" y="28" width="223" height="18"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeoBold" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -42,21 +42,21 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rUb-9R-xa7">
-                                <rect key="frame" x="20" y="90" width="50" height="50"/>
+                                <rect key="frame" x="24" y="90" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2fn-9h-lJ9"/>
                                     <constraint firstAttribute="width" constant="50" id="Kia-1x-rgf"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXM-cO-Bqm">
-                                <rect key="frame" x="20" y="229" width="352" height="1"/>
+                                <rect key="frame" x="24" y="229" width="344" height="1"/>
                                 <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="0.20034246575342465" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="USJ-4V-6Dt"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0KN-0k-loA">
-                                <rect key="frame" x="332" y="104.5" width="50" height="21"/>
+                                <rect key="frame" x="322" y="104.5" width="50" height="21"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-xl-C8Y">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="21"/>
@@ -79,12 +79,12 @@
                             <constraint firstItem="U2b-JP-qQA" firstAttribute="leading" secondItem="rUb-9R-xa7" secondAttribute="trailing" constant="10" id="Eru-91-wXv"/>
                             <constraint firstItem="U2b-JP-qQA" firstAttribute="centerY" secondItem="cnp-kA-wJj" secondAttribute="centerY" id="Fux-5J-B0Z"/>
                             <constraint firstItem="0KN-0k-loA" firstAttribute="centerY" secondItem="U2b-JP-qQA" secondAttribute="centerY" id="Hed-rz-5qB"/>
-                            <constraint firstItem="rUb-9R-xa7" firstAttribute="leading" secondItem="cnp-kA-wJj" secondAttribute="leading" constant="20" id="VLx-3Q-F1o"/>
+                            <constraint firstItem="rUb-9R-xa7" firstAttribute="leading" secondItem="cnp-kA-wJj" secondAttribute="leading" constant="24" id="VLx-3Q-F1o"/>
                             <constraint firstItem="rUb-9R-xa7" firstAttribute="centerY" secondItem="cnp-kA-wJj" secondAttribute="centerY" id="c29-LI-7vn"/>
-                            <constraint firstAttribute="trailing" secondItem="0KN-0k-loA" secondAttribute="trailing" constant="10" id="flE-XX-mcc"/>
+                            <constraint firstAttribute="trailing" secondItem="0KN-0k-loA" secondAttribute="trailing" constant="20" id="flE-XX-mcc"/>
                             <constraint firstItem="0KN-0k-loA" firstAttribute="leading" secondItem="U2b-JP-qQA" secondAttribute="trailing" constant="15" id="pLo-jy-9qg"/>
-                            <constraint firstAttribute="trailing" secondItem="MXM-cO-Bqm" secondAttribute="trailing" constant="20" id="sus-sT-fxb"/>
-                            <constraint firstItem="MXM-cO-Bqm" firstAttribute="leading" secondItem="cnp-kA-wJj" secondAttribute="leading" constant="20" id="veR-nx-7FC"/>
+                            <constraint firstAttribute="trailing" secondItem="MXM-cO-Bqm" secondAttribute="trailing" constant="24" id="sus-sT-fxb"/>
+                            <constraint firstItem="MXM-cO-Bqm" firstAttribute="leading" secondItem="cnp-kA-wJj" secondAttribute="leading" constant="24" id="veR-nx-7FC"/>
                             <constraint firstAttribute="width" constant="392" id="wnB-mo-xUA"/>
                         </constraints>
                     </view>

@@ -81,7 +81,17 @@ class WebServiceOperation<T: Codable>: AsyncOperation {
         guard let url = WebServiceManager.shared.url(withEndPoint: endPoint) else {
             return nil
         }
-        var urlRequest = URLRequest(url: url)
+        
+        guard let finalUrlString = url.absoluteString.removingPercentEncoding else {
+            return nil
+        }
+        
+        guard let newUrl = URL(string: finalUrlString) else {return nil}
+        var urlRequest = URLRequest(url: newUrl)
+        
+        urlRequest.setValue(RequestHeaderFields.acceptEncoding.rawValue, forHTTPHeaderField: "gzip")
+        urlRequest.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = self.method.rawValue
         
         return urlRequest
@@ -148,4 +158,14 @@ class WebServiceOperation<T: Codable>: AsyncOperation {
 struct NetworkResponse: Codable {
     let statusCode: Int
     let isSuccess: Bool
+}
+
+extension CharacterSet {
+    static func BaseAPI_URLQueryAllowedCharacterSet() -> CharacterSet {
+        let generalDelimitersToEncode = ":#[]@"
+        let subDelimitersToEncode = "!$&'()*+,;="
+        var allowedCharacterSet = CharacterSet.urlQueryAllowed
+        allowedCharacterSet.remove(charactersIn: generalDelimitersToEncode + subDelimitersToEncode)
+        return allowedCharacterSet
+    }
 }

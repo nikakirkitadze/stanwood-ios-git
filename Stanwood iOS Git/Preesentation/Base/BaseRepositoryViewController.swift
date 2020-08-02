@@ -17,8 +17,8 @@ class BaseRepositoryViewController: UIViewController {
         return ai
     }()
     
-    internal var trendingReposViewModels = [TrendingRepositoryViewModel]()
-    internal var currentTrendingRepositoryViewModel: TrendingRepositoryViewModel?
+    internal var repositoryViewModels = [RepositoryViewModel]()
+    internal var currentRepositoryViewModel: RepositoryViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class BaseRepositoryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.Details {
             guard let destinationVC = segue.destination as? DetailsViewController else {return}
-            destinationVC.viewModel = currentTrendingRepositoryViewModel
+            destinationVC.viewModel = currentRepositoryViewModel
         }
     }
     
@@ -44,13 +44,13 @@ class BaseRepositoryViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension BaseRepositoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trendingReposViewModels.count
+        return repositoryViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.deque(RepositoryCell.self, for: indexPath)
         cell.maxWidth = view.frame.width
-        cell.configure(with: trendingReposViewModels[indexPath.row])
+        cell.configure(with: repositoryViewModels[indexPath.row])
         return cell
     }
 }
@@ -58,7 +58,7 @@ extension BaseRepositoryViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension BaseRepositoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        currentTrendingRepositoryViewModel = trendingReposViewModels[indexPath.row]
+        currentRepositoryViewModel = repositoryViewModels[indexPath.row]
         performSegue(withIdentifier: Segues.Details, sender: nil)
     }
 }
