@@ -21,6 +21,8 @@ class FavouritesViewController: BaseRepositoryViewController {
         super.viewDidLoad()
 
         configureCollectionView()
+        fetchRepositories()
+        addObservers()
     }
 
     private func configureCollectionView() {
@@ -29,4 +31,25 @@ class FavouritesViewController: BaseRepositoryViewController {
         collectionView.registerClass(RepositoryCell.self)
     }
 
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(fetchRepositories),
+                                               name: .didMarkRepository,
+                                               object: nil)
+    }
+    
+    @objc func fetchRepositories() {
+        self.repositoryViewModels.removeAll()
+        PersistentManager.shared.fetch { (data) in
+            self.repositoryViewModels = data.map({RepositoryViewModel(item: $0)})
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

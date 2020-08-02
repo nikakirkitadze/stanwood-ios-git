@@ -11,11 +11,21 @@ import Foundation
 struct RepositoryViewModel {
     
     // MARK: Internal properties
+    internal var id: Int
     internal var authorAndName: String
     internal var descriptionn: String
     internal var language: String
     internal var forks: String
     internal var stars: String
+    internal var repository: Repository
+    
+    internal var avatarUrl: URL? {
+        return URL(string: avatar)
+    }
+    
+    internal var repoUrl: URL? {
+        return URL(string: htmlUrl)
+    }
     
     // MARK: Private properties
     private var avatar: String
@@ -38,16 +48,10 @@ struct RepositoryViewModel {
         return "Created \(date.timeAgoDisplay()) at \(df.string(from: date))"
     }
     
-    internal var avatarUrl: URL? {
-        return URL(string: avatar)
-    }
-    
-    internal var repoUrl: URL? {
-        return URL(string: htmlUrl)
-    }
-    
     // DI
     init(item: Repository) {
+        repository      = item
+        id              = item.id
         authorAndName   = item.fullName ?? ""
         descriptionn    = item.repositoryDescription ?? ""
         language        = item.language ?? ""

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B56D972524D6BE02006F7510 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D972424D6BE02006F7510 /* Notification.Name+Extension.swift */; };
 		B57395EE24D49B4A004C9429 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395ED24D49B4A004C9429 /* DetailsViewController.swift */; };
 		B57395F124D49BAD004C9429 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395F024D49BAD004C9429 /* Constants.swift */; };
 		B57395F424D5399E004C9429 /* BaseRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395F324D5399E004C9429 /* BaseRepositoryViewController.swift */; };
@@ -41,9 +42,11 @@
 		B5A7021A24D35C5C0039F9FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A701FD24D352960039F9FE /* Main.storyboard */; };
 		B5CB266124D3FEF9007E549C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B5CB266024D3FEF9007E549C /* Kingfisher */; };
 		B5E7170D24D6A71C002C24BE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7170C24D6A71C002C24BE /* Date+Extension.swift */; };
+		B5E7173624D6A9A1002C24BE /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7173524D6A9A1002C24BE /* PersistentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B56D972424D6BE02006F7510 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		B56F82DF24D3DFA400C444A8 /* Apple SD Gothic Neo Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple SD Gothic Neo Bold.ttf"; sourceTree = "<group>"; };
 		B57395ED24D49B4A004C9429 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B57395F024D49BAD004C9429 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		B5A7021424D35B0B0039F9FE /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		B5A7021624D35B170039F9FE /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B5E7170C24D6A71C002C24BE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B5E7173524D6A9A1002C24BE /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,7 @@
 		B5A7021224D35AF10039F9FE /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				B5E7173424D6A994002C24BE /* Persistent */,
 				B57395EF24D49BA3004C9429 /* Utils */,
 				B57395F824D54099004C9429 /* Network */,
 				B5A7021324D35AFB0039F9FE /* Extensions */,
@@ -273,6 +278,7 @@
 				B5A7021424D35B0B0039F9FE /* UICollectionViewCell+Extension.swift */,
 				B5A7021624D35B170039F9FE /* UICollectionView+Extension.swift */,
 				B5E7170C24D6A71C002C24BE /* Date+Extension.swift */,
+				B56D972424D6BE02006F7510 /* Notification.Name+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +292,14 @@
 				B5A7020524D3529C0039F9FE /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5E7173424D6A994002C24BE /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				B5E7173524D6A9A1002C24BE /* PersistentManager.swift */,
+			);
+			path = Persistent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +385,7 @@
 				B5A7020E24D357FA0039F9FE /* RepositoriesViewController.swift in Sources */,
 				B598325324D35D2800629E9A /* RepositoryCell.swift in Sources */,
 				B57395EE24D49B4A004C9429 /* DetailsViewController.swift in Sources */,
+				B56D972524D6BE02006F7510 /* Notification.Name+Extension.swift in Sources */,
 				B59BEE9624D5A22B0097FEB1 /* RepositoryReponse.swift in Sources */,
 				B5A7021724D35B170039F9FE /* UICollectionView+Extension.swift in Sources */,
 				B573961A24D54147004C9429 /* Log.swift in Sources */,
@@ -382,6 +397,7 @@
 				B573961024D540D6004C9429 /* PostWebServiceOperation.swift in Sources */,
 				B573961824D54129004C9429 /* NeoError.swift in Sources */,
 				B573961624D540D6004C9429 /* AsyncOperation.swift in Sources */,
+				B5E7173624D6A9A1002C24BE /* PersistentManager.swift in Sources */,
 				B5E7170D24D6A71C002C24BE /* Date+Extension.swift in Sources */,
 				B573961124D540D6004C9429 /* ApiConfiguration.swift in Sources */,
 				B57395F424D5399E004C9429 /* BaseRepositoryViewController.swift in Sources */,
