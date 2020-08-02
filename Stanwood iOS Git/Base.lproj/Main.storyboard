@@ -241,6 +241,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No internet!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2O-cm-uYI">
+                                <rect key="frame" x="144.5" y="433.5" width="125" height="29"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n78-RO-nKs">
                                 <rect key="frame" x="30" y="118" width="354" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -254,6 +260,9 @@
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="selectedSegmentTintColor" red="0.3803921569" green="0.3803921569" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="createdTypeSegment:" destination="bhh-Vb-Cpi" eventType="valueChanged" id="SSb-Ie-E6j"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -264,6 +273,8 @@
                             <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="Pcb-7D-kPa" secondAttribute="trailing" id="IIN-Z7-6s8"/>
                             <constraint firstItem="PQ1-h2-Txf" firstAttribute="trailing" secondItem="n78-RO-nKs" secondAttribute="trailing" constant="30" id="Orn-vo-8Rs"/>
                             <constraint firstItem="Pcb-7D-kPa" firstAttribute="top" secondItem="n78-RO-nKs" secondAttribute="bottom" constant="30" id="VGS-JF-MMT"/>
+                            <constraint firstItem="n2O-cm-uYI" firstAttribute="centerX" secondItem="c2X-Bh-gSW" secondAttribute="centerX" id="X1f-DS-r3o"/>
+                            <constraint firstItem="n2O-cm-uYI" firstAttribute="centerY" secondItem="c2X-Bh-gSW" secondAttribute="centerY" id="aOS-i7-j20"/>
                             <constraint firstItem="n78-RO-nKs" firstAttribute="leading" secondItem="PQ1-h2-Txf" secondAttribute="leading" constant="30" id="ilk-Gc-k5t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQ1-h2-Txf"/>
@@ -273,6 +284,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pcb-7D-kPa" id="gIT-hA-XhL"/>
+                        <outlet property="labelNoInternet" destination="n2O-cm-uYI" id="gct-kJ-Kl8"/>
                         <outlet property="scFilter" destination="n78-RO-nKs" id="vCk-9L-Dax"/>
                         <outlet property="topMarginConstraint" destination="8ID-1N-8sC" id="Sj6-u2-CRZ"/>
                         <segue destination="Kjs-Cd-VjB" kind="push" identifier="repo_details_segue" id="IeW-NN-Qyk"/>

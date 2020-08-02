@@ -6,6 +6,7 @@
 //  Copyright © 2020 Stanwood. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 struct RepositoryViewModel {
@@ -27,6 +28,9 @@ struct RepositoryViewModel {
         return URL(string: htmlUrl)
     }
     
+    // flag
+    internal var isFavourite: Bool = false
+    
     // MARK: Private properties
     private var avatar: String
     private var htmlUrl: String
@@ -46,6 +50,10 @@ struct RepositoryViewModel {
         let df = DateFormatter()
         df.dateFormat = "MM/dd/yyyy"
         return "Created \(date.timeAgoDisplay()) at \(df.string(from: date))"
+    }
+    
+    internal var favouriteIcon: UIImage? {
+        return isFavourite ? UIImage(named: "ic-bookmark-selected") : UIImage(named: "ic-bookmark")
     }
     
     // DI

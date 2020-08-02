@@ -42,8 +42,11 @@ class PersistentManager {
     }
     
     func fetch(completion: @escaping ([Repository]) -> ()) {
+        // contents of dir
+        guard let dirUrls = try? fm.contentsOfDirectory(at: repositoriesPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles) else {return}
+        
         var repositories = [Repository]()
-        for url in contensOfUrl(url: repositoriesPath) {
+        for url in dirUrls {
             do {
                 let jsonData = try Data(contentsOf: url)
                 let decoded = try JSONDecoder().decode(Repository.self, from: jsonData)
@@ -54,20 +57,22 @@ class PersistentManager {
         completion(repositories)
     }
     
-    func contensOfUrl(url: URL) -> [URL] {
-        return try! fm.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+    func delete(repository: Repository) {
+        let file = "repo_\(repository.id).json"
+        
+        do {
+            try fm.removeItem(at: repositoriesPath.appendingPathComponent(file))
+        } catch let err {Log.error(err)}
     }
-    
+
     func parse(url: URL) -> Repository? {
         
         do {
             let jsonData = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let decoded = try decoder.decode(Repository.self, from: jsonData)
-            return decoded
+            return try decoder.decode(Repository.self, from: jsonData)
         } catch let err {Log.error(err)}
         
         return nil
-//        return try! String(contentsOf: url)
     }
 }

@@ -65,8 +65,6 @@ class WebServiceOperation<T: Codable>: AsyncOperation {
             return commonNetworkResponse(statusCode: response.statusCode) as? T
         }
         
-        Log.debug(String(data: data, encoding: .utf8) ?? "")
-        
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
@@ -160,12 +158,3 @@ struct NetworkResponse: Codable {
     let isSuccess: Bool
 }
 
-extension CharacterSet {
-    static func BaseAPI_URLQueryAllowedCharacterSet() -> CharacterSet {
-        let generalDelimitersToEncode = ":#[]@"
-        let subDelimitersToEncode = "!$&'()*+,;="
-        var allowedCharacterSet = CharacterSet.urlQueryAllowed
-        allowedCharacterSet.remove(charactersIn: generalDelimitersToEncode + subDelimitersToEncode)
-        return allowedCharacterSet
-    }
-}

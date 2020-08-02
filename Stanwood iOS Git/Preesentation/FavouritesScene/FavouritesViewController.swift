@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavouritesViewController: BaseRepositoryViewController {
+class FavouritesViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -41,12 +41,23 @@ class FavouritesViewController: BaseRepositoryViewController {
     @objc func fetchRepositories() {
         self.repositoryViewModels.removeAll()
         PersistentManager.shared.fetch { (data) in
-            self.repositoryViewModels = data.map({RepositoryViewModel(item: $0)})
+            
+            self.repositoryViewModels = data.map({
+                var rep = RepositoryViewModel(item: $0)
+                rep.isFavourite = true
+                return rep
+            })
+
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
                 self.collectionView.reloadData()
             }
         }
+    }
+    
+    override func repositoryDidRemoved(index: Int) {
+        super.repositoryDidRemoved(index: index)
+        self.collectionView.reloadData()
     }
     
     deinit {

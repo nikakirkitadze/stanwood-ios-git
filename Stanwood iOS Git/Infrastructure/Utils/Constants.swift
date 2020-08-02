@@ -12,7 +12,3 @@ struct Segues {
     static let Details      =       "repo_details_segue"
     static let FavDetails   =       "fav_repo_details_segue"
 }
-
-struct Network {
-    static let githubBaseUrl = "api.github.com"
-}

@@ -103,6 +103,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="392" height="230"/>
             <connections>
+                <outlet property="btnFavourite" destination="pTZ-ut-W1a" id="m5U-IF-fx9"/>
                 <outlet property="imgUser" destination="rUb-9R-xa7" id="pyX-Sd-G7I"/>
                 <outlet property="labelDescription" destination="kcQ-4g-5NW" id="bfQ-pS-ZGo"/>
                 <outlet property="labelUsername" destination="JIw-XG-sBA" id="Hyy-gj-WNg"/>

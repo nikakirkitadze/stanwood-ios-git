@@ -9,9 +9,9 @@
 import Foundation
 
 struct ApiConfiguration {
-    static let apiKey = "0fa79c85c4bd0a683eb77d3ada60eca1"
-    static let baseUrl = "https://www.ecoconnect.site/api"
-    static let secret = "SJEx5D73JlKqTW3Jj5VaQCnCpFQWBATo"
+    static let apiKey = ""
+    static let baseUrl = "api.github.com"
+    static let secret = ""
     /// Set the sampleExperienceId to the provided value
     static let sampleExperienceId = -1
 }

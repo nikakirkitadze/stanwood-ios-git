@@ -9,5 +9,6 @@
 import Foundation
 
 extension Notification.Name {
-    static let didMarkRepository = Notification.Name(rawValue: "didMarkRepository")
+    static let didMarkRepository    = Notification.Name(rawValue: "didMarkRepository")
+    static let flagsChanged         = Notification.Name(rawValue: "FlagsChanged")
 }

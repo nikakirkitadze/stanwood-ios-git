@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B56D972524D6BE02006F7510 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D972424D6BE02006F7510 /* Notification.Name+Extension.swift */; };
+		B56D972824D6EB2A006F7510 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = B56D972724D6EB2A006F7510 /* Reachability */; };
+		B56D972C24D6F096006F7510 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D972B24D6F096006F7510 /* UIViewController+Extension.swift */; };
 		B57395EE24D49B4A004C9429 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395ED24D49B4A004C9429 /* DetailsViewController.swift */; };
 		B57395F124D49BAD004C9429 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395F024D49BAD004C9429 /* Constants.swift */; };
-		B57395F424D5399E004C9429 /* BaseRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395F324D5399E004C9429 /* BaseRepositoryViewController.swift */; };
+		B57395F424D5399E004C9429 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395F324D5399E004C9429 /* BaseViewController.swift */; };
 		B573960924D540D6004C9429 /* WebServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395FA24D540D5004C9429 /* WebServiceOperation.swift */; };
 		B573960A24D540D6004C9429 /* PutWebServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395FB24D540D5004C9429 /* PutWebServiceOperation.swift */; };
 		B573960B24D540D6004C9429 /* DeleteWebServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57395FC24D540D5004C9429 /* DeleteWebServiceOperation.swift */; };
@@ -47,10 +49,11 @@
 
 /* Begin PBXFileReference section */
 		B56D972424D6BE02006F7510 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
+		B56D972B24D6F096006F7510 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B56F82DF24D3DFA400C444A8 /* Apple SD Gothic Neo Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple SD Gothic Neo Bold.ttf"; sourceTree = "<group>"; };
 		B57395ED24D49B4A004C9429 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B57395F024D49BAD004C9429 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B57395F324D5399E004C9429 /* BaseRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoryViewController.swift; sourceTree = "<group>"; };
+		B57395F324D5399E004C9429 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B57395FA24D540D5004C9429 /* WebServiceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceOperation.swift; sourceTree = "<group>"; };
 		B57395FB24D540D5004C9429 /* PutWebServiceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutWebServiceOperation.swift; sourceTree = "<group>"; };
 		B57395FC24D540D5004C9429 /* DeleteWebServiceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteWebServiceOperation.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CB266124D3FEF9007E549C /* Kingfisher in Frameworks */,
+				B56D972824D6EB2A006F7510 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +147,7 @@
 		B57395F224D53996004C9429 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B57395F324D5399E004C9429 /* BaseRepositoryViewController.swift */,
+				B57395F324D5399E004C9429 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -279,6 +283,7 @@
 				B5A7021624D35B170039F9FE /* UICollectionView+Extension.swift */,
 				B5E7170C24D6A71C002C24BE /* Date+Extension.swift */,
 				B56D972424D6BE02006F7510 /* Notification.Name+Extension.swift */,
+				B56D972B24D6F096006F7510 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			name = "Stanwood iOS Git";
 			packageProductDependencies = (
 				B5CB266024D3FEF9007E549C /* Kingfisher */,
+				B56D972724D6EB2A006F7510 /* Reachability */,
 			);
 			productName = "Stanwood iOS Git";
 			productReference = B5A701F424D352960039F9FE /* Stanwood iOS Git.app */;
@@ -351,6 +357,7 @@
 			mainGroup = B5A701EB24D352960039F9FE;
 			packageReferences = (
 				B5CB265F24D3FEF9007E549C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B56D972624D6EB2A006F7510 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = B5A701F524D352960039F9FE /* Products */;
 			projectDirPath = "";
@@ -380,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56D972C24D6F096006F7510 /* UIViewController+Extension.swift in Sources */,
 				B573962024D5423C004C9429 /* App.swift in Sources */,
 				B573961324D540D6004C9429 /* HTTPHeaders.swift in Sources */,
 				B5A7020E24D357FA0039F9FE /* RepositoriesViewController.swift in Sources */,
@@ -400,7 +408,7 @@
 				B5E7173624D6A9A1002C24BE /* PersistentManager.swift in Sources */,
 				B5E7170D24D6A71C002C24BE /* Date+Extension.swift in Sources */,
 				B573961124D540D6004C9429 /* ApiConfiguration.swift in Sources */,
-				B57395F424D5399E004C9429 /* BaseRepositoryViewController.swift in Sources */,
+				B57395F424D5399E004C9429 /* BaseViewController.swift in Sources */,
 				B5A7021124D3580B0039F9FE /* FavouritesViewController.swift in Sources */,
 				B59BEE9A24D695E90097FEB1 /* RequestHeaderFields.swift in Sources */,
 				B59BEE9824D5A29A0097FEB1 /* RepositoryViewModel.swift in Sources */,
@@ -610,6 +618,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B56D972624D6EB2A006F7510 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		B5CB265F24D3FEF9007E549C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -621,6 +637,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B56D972724D6EB2A006F7510 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B56D972624D6EB2A006F7510 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
 		B5CB266024D3FEF9007E549C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B5CB265F24D3FEF9007E549C /* XCRemoteSwiftPackageReference "Kingfisher" */;

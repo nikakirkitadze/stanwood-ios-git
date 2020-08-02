@@ -8,12 +8,14 @@
 //
 
 import UIKit
+import Reachability
 
-class RepositoriesViewController: BaseRepositoryViewController {
+class RepositoriesViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scFilter: UISegmentedControl!
     @IBOutlet weak var topMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelNoInternet: UILabel!
     
     internal var searchText: String?
     
@@ -26,7 +28,14 @@ class RepositoriesViewController: BaseRepositoryViewController {
         super.viewDidLoad()
         
         setupLayout()
+        addObservers()
         fetchRepositories()
+    }
+    
+    @IBAction func createdTypeSegment(_ sender: Any) {
+        self.repositoryViewModels.removeAll()
+        self.spinner.startAnimating()
+        self.fetchRepositories()
     }
     
     private func setupLayout() {
@@ -49,13 +58,34 @@ class RepositoriesViewController: BaseRepositoryViewController {
     }
     
     private func fetchRepositories() {
-        RepositoriesServiceManager.fetchRepositories { (repos) in
-            self.repositoryViewModels = repos.map({ RepositoryViewModel(item: $0) })
-            DispatchQueue.main.async {
-                self.spinner.stopAnimating()
-                self.collectionView.reloadData()
+        if isNetwork {
+            labelNoInternet.isHidden = true
+            spinner.startAnimating()
+            
+            guard let created: CreatedType = CreatedType(rawValue: scFilter.selectedSegmentIndex) else {return}
+            RepositoriesServiceManager.fetchRepositories(created) { (repos) in
+                self.repositoryViewModels = repos.map({ RepositoryViewModel(item: $0) })
+                DispatchQueue.main.async {
+                    self.spinner.stopAnimating()
+                    self.collectionView.reloadData()
+                }
             }
+        } else {
+            spinner.stopAnimating()
+            labelNoInternet.isHidden = false
         }
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reachabilityChanged(note:)),
+                                               name: .reachabilityChanged,
+                                               object: nil)
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        
+        fetchRepositories()
     }
 }
 
@@ -69,7 +99,6 @@ extension RepositoriesViewController {
         }
         
         if scrollView.contentOffset.y > 10 {
-            print(scrollView.contentOffset.y)
             topMarginConstraint.constant = -scrollView.contentOffset.y - 10
             self.view.layoutIfNeeded()
         } else {
@@ -85,9 +114,9 @@ extension RepositoriesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchBar.text
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(search), object: nil)
-        self.perform(#selector(search), with: nil, afterDelay: 0.5)
+        self.perform(#selector(search), with: nil, afterDelay: 0.3)
     }
-
+    
     @objc func search() {
         guard let text = searchText else {return}
         spinner.startAnimating()

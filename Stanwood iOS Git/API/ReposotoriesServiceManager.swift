@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum CreatedType: Int {
+    case day = 0
+    case month
+    case year
+}
+
 class RepositoriesServiceManager {
     
     static func searchRepository(with searchTerm: String, completion: @escaping ([Repository]) -> ()) {
@@ -31,42 +37,44 @@ class RepositoriesServiceManager {
         }
     }
     
-    static func fetchRepositories(since: String = "1", completion: @escaping ([Repository]) -> ()) {
+    static func fetchRepositories(_ created: CreatedType, completion: @escaping ([Repository]) -> ()) {
         var urlComponents = URLComponents()
-        urlComponents.path = "repositories"
+        urlComponents.path = "search/repositories"
         urlComponents.queryItems = [
-           URLQueryItem(name: "since", value: ":=1")
+           URLQueryItem(name: "q", value: "created:>\(getDate(created))"),
+           URLQueryItem(name: "page", value: "1"),
+           URLQueryItem(name: "per_page", value: "100"),
+           URLQueryItem(name: "sort", value: "stars"),
+           URLQueryItem(name: "order", value: "desc")
         ]
-        
-        let url = self.urlWithParameters(url: "repositories", parameters: ["since":"1"])
-        
         guard let absoluteString = urlComponents.url?.absoluteString else {return}
-        WebServiceManager.shared.get(endpoint: url) { (result: Result<[Repository]?, NeoError>) in
+        WebServiceManager.shared.get(endpoint: absoluteString) { (result: Result<RepositoryReponse?, NeoError>) in
             switch result {
             case .success(let repos):
                 guard let repos = repos else {return}
-                completion(repos)
+                completion(repos.items ?? [])
             case .failure(let err):
                 print(err)
             }
         }
     }
     
-    static func urlWithParameters(url: String, parameters: [String:String]?) -> String {
-        var retUrl = url
-        if let parameters = parameters {
-            if parameters.count > 0 {
-                retUrl.append("?")
-                parameters.keys.forEach {
-                    guard let value = parameters[$0] else { return }
-                    let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.BaseAPI_URLQueryAllowedCharacterSet())
-                    if let escapedValue = escapedValue {
-                        retUrl.append("\($0)=\(escapedValue)&")
-                    }
-                }
-                retUrl.removeLast()
-            }
+    static func getDate(_ type: CreatedType) -> String {
+        var dayComponent    = DateComponents()
+        switch type {
+        case .day:
+            dayComponent.day    = -1
+        case .month:
+            dayComponent.month  = -1
+        case .year:
+            dayComponent.year   = -1
         }
-        return retUrl
+        let theCalendar     = Calendar.current
+        let previousDate    = theCalendar.date(byAdding: dayComponent, to: Date())
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = previousDate else {return ""}
+        return dateFormatter.string(from: date)
     }
 }
