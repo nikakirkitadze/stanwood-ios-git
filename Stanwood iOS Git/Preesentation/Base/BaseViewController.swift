@@ -17,7 +17,12 @@ class BaseViewController: UIViewController {
         return ai
     }()
     
-    internal var repositoryViewModels = [RepositoryViewModel]()
+    internal var repositoryViewModels = [RepositoryViewModel]() {
+        didSet {
+            repositoryViewModelsFiltered.append(contentsOf: repositoryViewModels)
+        }
+    }
+    internal var repositoryViewModelsFiltered = [RepositoryViewModel]()
     internal var currentRepositoryViewModel: RepositoryViewModel?
     
     override func viewDidLoad() {
@@ -44,7 +49,7 @@ class BaseViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension BaseViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return repositoryViewModels.count
+        return repositoryViewModelsFiltered.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,7 +57,7 @@ extension BaseViewController: UICollectionViewDataSource {
         cell.maxWidth = view.frame.width
         cell.delegate = self
         cell.row = indexPath.row
-        cell.configure(with: repositoryViewModels[indexPath.row])
+        cell.configure(with: repositoryViewModelsFiltered[indexPath.row])
         return cell
     }
 }
@@ -60,7 +65,7 @@ extension BaseViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension BaseViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        currentRepositoryViewModel = repositoryViewModels[indexPath.row]
+        currentRepositoryViewModel = repositoryViewModelsFiltered[indexPath.row]
         performSegue(withIdentifier: Segues.Details, sender: nil)
     }
 }
@@ -79,6 +84,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout {
 // MARK: RepositoryCellDelegate
 extension BaseViewController: RepositoryCellDelegate {
     func repositoryDidRemoved(index: Int) {
-        self.repositoryViewModels.remove(at: index)
+        self.repositoryViewModelsFiltered.remove(at: index)
     }
 }

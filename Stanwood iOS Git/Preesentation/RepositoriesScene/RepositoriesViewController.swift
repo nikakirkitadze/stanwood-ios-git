@@ -124,6 +124,7 @@ extension RepositoriesViewController: UISearchBarDelegate {
         RepositoriesServiceManager.searchRepository(with: text) { (data) in
             self.spinner.stopAnimating()
             self.repositoryViewModels.removeAll()
+            self.repositoryViewModelsFiltered.removeAll()
             self.repositoryViewModels = data.map({ RepositoryViewModel(item: $0) })
             DispatchQueue.main.async {
                 self.collectionView.reloadData()

@@ -20,11 +20,19 @@ class FavouritesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        configureSearchBar()
         configureCollectionView()
         fetchRepositories()
         addObservers()
     }
 
+    private func configureSearchBar() {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
+    }
+    
     private func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -62,5 +70,23 @@ class FavouritesViewController: BaseViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+// MARK: UISearchBarDelegate
+extension FavouritesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        repositoryViewModelsFiltered.removeAll()
+        guard let text = searchBar.text?.lowercased() else {return}
+        if text.isEmpty {repositoryViewModelsFiltered.append(contentsOf: repositoryViewModels)}
+        
+        for repoViewModel in repositoryViewModels {
+            let targetText = "\(repoViewModel.authorAndName.lowercased()) \(repoViewModel.descriptionn.lowercased())"
+            if targetText.contains(text) {
+                repositoryViewModelsFiltered.append(repoViewModel)
+            }
+        }
+        
+        self.collectionView.reloadData()
     }
 }
