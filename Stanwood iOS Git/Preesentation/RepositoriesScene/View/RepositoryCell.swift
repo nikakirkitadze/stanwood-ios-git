@@ -65,7 +65,7 @@ class RepositoryCell: UICollectionViewCell {
     }
     
     internal func configure(with viewModel: RepositoryViewModel) {
-        self.viewModel = viewModel
+        self.viewModel          = viewModel
         labelUsername.text      = viewModel.authorAndName
         labelDescription.text   = viewModel.descriptionn
         imgUser.kf.setImage(with: viewModel.avatarUrl)

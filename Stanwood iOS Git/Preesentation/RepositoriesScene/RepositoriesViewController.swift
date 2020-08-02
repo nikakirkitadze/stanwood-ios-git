@@ -19,6 +19,12 @@ class RepositoriesViewController: BaseViewController {
     
     internal var searchText: String?
     
+    var isLoading = false
+    var hasNextPage = false
+    var paginated = false
+    var currentPage = 1
+    let paginationIndicatorInset: CGFloat = 25
+    
     override func loadView() {
         super.loadView()
         view.addSubview(spinner)
@@ -29,14 +35,16 @@ class RepositoriesViewController: BaseViewController {
         
         setupLayout()
         addObservers()
-        fetchRepositories()
+        
+        paginated = true
+        load(page: 1)
     }
     
     @IBAction func createdTypeSegment(_ sender: Any) {
         self.repositoryViewModelsFiltered.removeAll()
         self.repositoryViewModels.removeAll()
         self.spinner.startAnimating()
-        self.fetchRepositories()
+        self.load(page: currentPage)
     }
     
     private func setupLayout() {
@@ -58,14 +66,25 @@ class RepositoriesViewController: BaseViewController {
         collectionView.registerClass(RepositoryCell.self)
     }
     
-    private func fetchRepositories() {
+    func load(page: Int) {
+        guard !isLoading else { return }
+        isLoading = true
+        hasNextPage = false
+        
         if isNetwork {
             labelNoInternet.isHidden = true
-            spinner.startAnimating()
             
             guard let created: CreatedType = CreatedType(rawValue: scFilter.selectedSegmentIndex) else {return}
-            RepositoriesServiceManager.fetchRepositories(created) { (repos) in
+            RepositoriesServiceManager.fetchRepositories(for: page, created) { (repos) in
+                self.isLoading = false
                 self.repositoryViewModels = repos.map({ RepositoryViewModel(item: $0) })
+                
+                if repos.isEmpty {
+                    self.collectionView.contentInset.bottom = self.tabBarController?.tabBar.frame.height ?? 0
+                } else {
+                    self.hasNextPage = true
+                }
+                
                 DispatchQueue.main.async {
                     self.spinner.stopAnimating()
                     self.collectionView.reloadData()
@@ -76,7 +95,7 @@ class RepositoriesViewController: BaseViewController {
             labelNoInternet.isHidden = false
         }
     }
-    
+
     private func addObservers() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reachabilityChanged(note:)),
@@ -89,7 +108,7 @@ class RepositoriesViewController: BaseViewController {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             
-            fetchRepositories()
+            load(page: currentPage)
         } else {
             let alert = UIAlertController(title: "Warning!", message: "No internet connection!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
@@ -105,6 +124,42 @@ class RepositoriesViewController: BaseViewController {
 // MARK: UIScrollViewDelegate
 extension RepositoriesViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        slideTopComponents(scrollView)
+        pagination(scrollView)
+    }
+    
+    private func pagination(_ scrollView: UIScrollView) {
+        guard paginated else { return }
+        let y = scrollView.contentOffset.y + scrollView.bounds.size.height - scrollView.contentInset.bottom
+        let height = scrollView.contentSize.height
+        let reloadDistance: CGFloat = 10
+        if y > height + reloadDistance && !isLoading && hasNextPage {
+            let inset = tabBarController?.tabBar.frame.height ?? 0
+            collectionView.contentInset.bottom = inset + paginationIndicatorInset
+            
+            let background = UIView(frame: collectionView.bounds)
+            let indicator = UIActivityIndicatorView(style: .large)
+            
+            indicator.startAnimating()
+            background.addSubview(indicator)
+            
+            indicator.center = background.center
+            indicator.frame.origin.y = background.frame.height - indicator.frame.height - 15
+            
+            collectionView.backgroundView = background
+            
+            // wait two seconds to simulate some work happening
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                // then remove the spinner view controller
+                background.removeFromSuperview()
+            }
+            
+            currentPage += 1
+            load(page: currentPage)
+        }
+    }
+    
+    private func slideTopComponents(_ scrollView: UIScrollView) {
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
         if bottomEdge >= scrollView.contentSize.height {
             // we are at the end

@@ -37,13 +37,13 @@ class RepositoriesServiceManager {
         }
     }
     
-    static func fetchRepositories(_ created: CreatedType, completion: @escaping ([Repository]) -> ()) {
+    static func fetchRepositories(for page: Int, _ created: CreatedType, completion: @escaping ([Repository]) -> ()) {
         var urlComponents = URLComponents()
         urlComponents.path = "search/repositories"
         urlComponents.queryItems = [
            URLQueryItem(name: "q", value: "created:>\(getDate(created))"),
-           URLQueryItem(name: "page", value: "1"),
-           URLQueryItem(name: "per_page", value: "100"),
+           URLQueryItem(name: "page", value: "\(page)"),
+           URLQueryItem(name: "per_page", value: "20"),
            URLQueryItem(name: "sort", value: "stars"),
            URLQueryItem(name: "order", value: "desc")
         ]
