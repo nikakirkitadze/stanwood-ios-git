@@ -33,6 +33,7 @@ class RepositoriesViewController: BaseViewController {
     }
     
     @IBAction func createdTypeSegment(_ sender: Any) {
+        self.repositoryViewModelsFiltered.removeAll()
         self.repositoryViewModels.removeAll()
         self.spinner.startAnimating()
         self.fetchRepositories()
@@ -84,8 +85,20 @@ class RepositoriesViewController: BaseViewController {
     }
     
     @objc func reachabilityChanged(note: Notification) {
+        if isNetwork {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            
+            fetchRepositories()
+        } else {
+            let alert = UIAlertController(title: "Warning!", message: "No internet connection!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.warning)
+        }
         
-        fetchRepositories()
     }
 }
 

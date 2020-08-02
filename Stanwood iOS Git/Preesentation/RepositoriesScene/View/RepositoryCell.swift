@@ -58,6 +58,10 @@ class RepositoryCell: UICollectionViewCell {
         
         viewModel.isFavourite.toggle()
         sender.setImage(viewModel.favouriteIcon, for: .normal)
+        
+        // haptic feedback
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
     
     internal func configure(with viewModel: RepositoryViewModel) {

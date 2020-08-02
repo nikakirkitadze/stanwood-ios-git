@@ -10,6 +10,6 @@ import UIKit
 
 extension UIViewController {
     var isNetwork: Bool {
-        return AppDelegate.shared.reachability.connection != .unavailable
+        return AppDelegate.shared.reachability?.connection != .unavailable
     }
 }

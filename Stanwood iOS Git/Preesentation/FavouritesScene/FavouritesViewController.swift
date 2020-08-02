@@ -47,6 +47,7 @@ class FavouritesViewController: BaseViewController {
     }
     
     @objc func fetchRepositories() {
+        self.repositoryViewModelsFiltered.removeAll()
         self.repositoryViewModels.removeAll()
         PersistentManager.shared.fetch { (data) in
             

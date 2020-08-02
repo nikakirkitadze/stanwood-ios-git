@@ -13,7 +13,7 @@ import Reachability
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static var shared: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let reachability = try! Reachability()
+    var reachability: Reachability?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -38,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupReachability() {
         do {
-            try reachability.startNotifier()
+            reachability = try! Reachability()
+            try reachability?.startNotifier()
         } catch {
             print("Unable to start notifier")
         }
